@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const apiKey = "Kh5gVQGfC0TJzPYg2qFZPHuQ6DYFOutr"; // Replace with your actual API key
+    const apiKey = "IN5XC8MAcWhz3aclRHnefXAkeRwTNPAj"; // Replace with your actual API key
     const form = document.getElementById("cityForm");
     const weatherDiv = document.getElementById("weather");
 
