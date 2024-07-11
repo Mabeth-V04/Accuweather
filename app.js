@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const apiKey = "IN5XC8MAcWhz3aclRHnefXAkeRwTNPAj"; // Replace with your actual API key
     const form = document.getElementById("cityForm");
     const weatherDiv = document.getElementById("weather");
+    const dailyDiv = document.getElementById("daily");
+    const hourlyDiv = document.getElementById("hourly");
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -57,12 +59,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data && data.length > 0) {
                     displayHourlyForecast(data);
                 } else {
-                    weatherDiv.innerHTML += `<p>No hourly forecast data available.</p>`;
+                    hourlyDiv.innerHTML += `<p>No hourly forecast data available.</p>`;
                 }
             })
             .catch(error => {
                 console.error("Error fetching hourly forecast data:", error);
-                weatherDiv.innerHTML += `<p>Error fetching hourly forecast data.</p>`;
+                hourlyDiv.innerHTML += `<p>Error fetching hourly forecast data.</p>`;
             });
     }
 
@@ -75,12 +77,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (data && data.DailyForecasts && data.DailyForecasts.length > 0) {
                     displayDailyForecast(data.DailyForecasts);
                 } else {
-                    weatherDiv.innerHTML += `<p>No daily forecast data available.</p>`;
+                    dailyDiv.innerHTML += `<p>No daily forecast data available.</p>`;
                 }
             })
             .catch(error => {
                 console.error("Error fetching daily forecast data:", error);
-                weatherDiv.innerHTML += `<p>Error fetching daily forecast data.</p>`;
+                dailyDiv.innerHTML += `<p>Error fetching daily forecast data.</p>`;
             });
     }
 
@@ -107,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <p>Weather: ${weather}</p>
             `;
         });
-        weatherDiv.innerHTML += hourlyForecastContent;
+        hourlyDiv.innerHTML += hourlyForecastContent;
     }
 
     function displayDailyForecast(data) {
@@ -125,6 +127,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 <p>Night: ${nightWeather}</p>
             `;
         });
-        weatherDiv.innerHTML += dailyForecastContent;
+        dailyDiv.innerHTML += dailyForecastContent;
     }
 });

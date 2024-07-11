@@ -3,9 +3,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 20px;
     background-color: #f0f8ff;
+    min-height: 100vh;
 }
 
 h1 {
@@ -35,7 +37,7 @@ button:hover {
     background-color: #45a049;
 }
 
-#weather {
+.card {
     margin-top: 20px;
     padding: 20px;
     border: 1px solid #ccc;
